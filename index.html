@@ -139,7 +139,7 @@ button {
 <div class="section romantic fade">
   <h2>Our Moments 🎥</h2>
   <video controls>
-    <source src="video.mp4" type="video/mp4">
+    <source src="anniversary.mp4" type="video/mp4">
   </video>
 </div>
 
@@ -148,29 +148,13 @@ button {
   <h2>My Voice 💕</h2>
   <button onclick="playVoice()">Play</button>
   <audio id="voiceAudio">
-    <source src="voice.mp3" type="audio/mpeg">
+    <source src="anniversary1.acc" type="audio/mpeg">
   </audio>
 </div>
 
 <!-- 💍 Final -->
 <div class="section romantic fade">
   <h1>Will you stay with me forever? 💍</h1>
-</div>
-
-<!-- 📘 Instructions -->
-<div class="section">
-  <h2>How to Use This ❤️</h2>
-  <button onclick="toggleGuide()">Show Guide</button>
-
-  <div id="guide" class="hidden">
-    <p><b>Step 1:</b> Put these files together:</p>
-    <p>index.html, photo1.jpg, photo2.jpg, photo3.jpg, song.mp3, voice.mp3, video.mp4</p>
-
-    <p><b>Step 2:</b> Open index.html</p>
-
-    <p><b>Step 3:</b> To create link:</p>
-    <p>Use GitHub Pages or Netlify (drag & drop)</p>
-  </div>
 </div>
 
 <script>
@@ -182,7 +166,7 @@ setInterval(()=>{
 },1000);
 
 // SLIDESHOW
-let imgs=["photo1.jpg","photo2.jpg","photo3.jpg"];
+let imgs=["wed1.jpg","wed2.jpg","juan1.jpg"];
 let i=0;
 setInterval(()=>{
   i=(i+1)%imgs.length;
