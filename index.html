@@ -11,6 +11,7 @@ body {
   background:black;
   color:white;
   overflow-x:hidden;
+  scroll-behavior:smooth;
 }
 
 .section {
@@ -57,58 +58,67 @@ button {
 
 .hidden {display:none;}
 
+/* ❤️ HEARTS */
 .heart {
   position: fixed;
-  top:-10px;
-  color:red;
-  animation: fall linear infinite;
+  top: -10px;
+  color: red;
+  font-size: 20px;
+  animation: fall linear forwards;
 }
 
 @keyframes fall {
-  to {transform: translateY(100vh);}
+  0% {
+    transform: translateY(-10px) translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) translateX(50px);
+    opacity: 0;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<!-- 🎵 Music -->
-<audio autoplay loop>
-  <source src="song.mp3" type="audio/mpeg">
-</audio>
-
-<!-- 🎬 Intro -->
+<!-- 🎵 MUSIC BUTTON -->
 <div class="section">
   <h1>For My Love, Prasanth ❤️</h1>
   <p>From Sujithra… with all my heart 💕</p>
+  <button onclick="startMusic()">Play Music 🎵</button>
 </div>
 
-<!-- ❤️ Main -->
+<audio id="bgMusic" loop>
+  <source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<!-- ❤️ MAIN -->
 <div class="section romantic fade">
   <h1>Happy 4th Anniversary, My Pathu Paisa ❤️</h1>
   <div id="timer"></div>
 </div>
 
-<!-- 📖 Story -->
+<!-- 📖 STORY -->
 <div class="section fade">
   <h2>Our Story 💕</h2>
   <p>It all started in my heart… and became my forever ❤️</p>
 </div>
 
-<!-- 📸 Slideshow -->
+<!-- 📸 SLIDESHOW -->
 <div class="section romantic fade">
   <h2>Our Memories 📸</h2>
   <img id="slide" src="wed1.jpg">
 </div>
 
-<!-- 💬 Love -->
+<!-- 💬 LOVE -->
 <div class="section fade">
   <h2>Why I Love You ❤️</h2>
   <p id="loveText">Click below...</p>
   <button onclick="nextLove()">Show</button>
 </div>
 
-<!-- 🔐 Secret -->
+<!-- 🔐 SECRET -->
 <div class="section romantic fade">
   <h2>Unlock My Heart 🔐</h2>
   <input type="password" id="pass">
@@ -116,56 +126,62 @@ button {
   <div id="secret" class="hidden">You are my forever ❤️</div>
 </div>
 
-<!-- 🧠 Quiz -->
+<!-- 🧠 QUIZ -->
 <div class="section fade">
   <h2>Quiz 😍</h2>
 
   <p>Where did we meet?</p>
-  <button onclick="answer(1,'a',this)">Home</button>
-  <button onclick="answer(1,'b',this)">Outside</button>
+  <button onclick="answer(1,'a')">Home</button>
+  <button onclick="answer(1,'b')">Outside</button>
 
   <p>Special place?</p>
-  <button onclick="answer(2,'a',this)">Qatar</button>
-  <button onclick="answer(2,'b',this)">Other</button>
+  <button onclick="answer(2,'a')">Qatar</button>
+  <button onclick="answer(2,'b')">Other</button>
 
   <p>Nickname?</p>
-  <button onclick="answer(3,'a',this)">Pathu Paisa</button>
-  <button onclick="answer(3,'b',this)">Other</button>
+  <button onclick="answer(3,'a')">Pathu Paisa</button>
+  <button onclick="answer(3,'b')">Other</button>
 
   <p id="score"></p>
 </div>
 
-<!-- 🎥 Video -->
+<!-- 🎥 VIDEO -->
 <div class="section romantic fade">
   <h2>Our Moments 🎥</h2>
   <video controls>
     <source src="anniversary.mp4" type="video/mp4">
+    Your browser does not support video.
   </video>
 </div>
 
-<!-- 🎙️ Voice -->
+<!-- 🎙️ VOICE -->
 <div class="section fade">
   <h2>My Voice 💕</h2>
   <button onclick="playVoice()">Play</button>
   <audio id="voiceAudio">
-    <source src="anniversary1.acc" type="audio/mpeg">
+    <source src="anniversary1.aac" type="audio/aac">
   </audio>
 </div>
 
-<!-- 💍 Final -->
+<!-- 💍 FINAL -->
 <div class="section romantic fade">
   <h1>Will you stay with me forever? 💍</h1>
 </div>
 
 <script>
-// TIMER
+// 🎵 MUSIC
+function startMusic(){
+  document.getElementById("bgMusic").play();
+}
+
+// ⏱ TIMER
 const startDate=new Date("2022-05-11");
 setInterval(()=>{
   let d=Math.floor((new Date()-startDate)/(1000*60*60*24));
   document.getElementById("timer").innerHTML=`${d} days together ❤️`;
 },1000);
 
-// SLIDESHOW
+// 📸 SLIDESHOW
 let imgs=["wed1.jpg","wed2.jpg","juan1.jpg"];
 let i=0;
 setInterval(()=>{
@@ -173,7 +189,7 @@ setInterval(()=>{
   document.getElementById("slide").src=imgs[i];
 },2500);
 
-// LOVE TEXT
+// 💬 LOVE TEXT
 let texts=["You are my peace ❤️","My happiness 💕","My everything 🌹"];
 let t=0;
 function nextLove(){
@@ -181,17 +197,17 @@ function nextLove(){
   t=(t+1)%texts.length;
 }
 
-// PASSWORD
+// 🔐 PASSWORD
 function checkPass(){
   if(document.getElementById("pass").value.toLowerCase()==="pathu paisa"){
     document.getElementById("secret").style.display="block";
   }
 }
 
-// QUIZ
+// 🧠 QUIZ
 let correct={1:"a",2:"a",3:"a"};
 let score=0,count=0;
-function answer(q,a,btn){
+function answer(q,a){
   if(a===correct[q]) score++;
   count++;
   if(count===3){
@@ -199,18 +215,12 @@ function answer(q,a,btn){
   }
 }
 
-// VOICE
+// 🎙️ VOICE
 function playVoice(){
   document.getElementById("voiceAudio").play();
 }
 
-// GUIDE
-function toggleGuide(){
-  let g=document.getElementById("guide");
-  g.style.display = g.style.display==="block"?"none":"block";
-}
-
-// SCROLL
+// ✨ SCROLL ANIMATION
 let fades=document.querySelectorAll(".fade");
 window.addEventListener("scroll",()=>{
   fades.forEach(el=>{
@@ -220,14 +230,20 @@ window.addEventListener("scroll",()=>{
   });
 });
 
-// HEARTS
+// ❤️ FLOATING HEARTS
 setInterval(()=>{
   let h=document.createElement("div");
   h.className="heart";
   h.innerHTML="❤️";
+
   h.style.left=Math.random()*100+"vw";
+  h.style.fontSize=(Math.random()*20+10)+"px";
+
+  let duration = Math.random()*3+2;
+  h.style.animationDuration = duration+"s";
+
   document.body.appendChild(h);
-  setTimeout(()=>h.remove(),5000);
+  setTimeout(()=>h.remove(), duration*1000);
 },300);
 </script>
 
