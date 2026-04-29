@@ -201,6 +201,16 @@ ul li {
 <!-- FINAL -->
 <div class="section romantic fade">
   <h1>Will you stay with me forever? 💍</h1>
+
+  <button onclick="sayYes()">Yes ❤️</button>
+  <button onclick="sayNo()">No 😢</button>
+  
+  <div id="finalImage" class="hidden">
+    <img src="tatoo.jpg" alt="Forever Love ❤️">
+    <h2>I knew it... I love you forever ❤️</h2>
+  </div>
+
+  <p id="noText"></p>
 </div>
 
 <script>
@@ -268,6 +278,15 @@ setInterval(()=>{
   document.body.appendChild(h);
   setTimeout(()=>h.remove(),duration*1000);
 },300);
+  
+function sayYes(){
+  document.getElementById("finalImage").style.display="block";
+}
+
+function sayNo(){
+  let txt = document.getElementById("noText");
+  txt.innerHTML = "You are not allowed to select No 😝 Try again!";
+}
 </script>
 
 </body>
