@@ -6,78 +6,78 @@
 
 <style>
 body {
-  margin:0;
-  font-family:'Segoe UI',sans-serif;
-  background:black;
-  color:white;
-  overflow-x:hidden;
-  scroll-behavior:smooth;
+margin:0;
+font-family:'Segoe UI',sans-serif;
+background:black;
+color:white;
+overflow-x:hidden;
+scroll-behavior:smooth;
 }
 
 /* SECTIONS */
 .section {
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  padding:20px;
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
 }
 
 /* ROMANTIC BACKGROUND */
 .romantic {
-  background: linear-gradient(to right, #ff758c, #ff7eb3);
+background: linear-gradient(to right, #ff758c, #ff7eb3);
 }
 
 /* FADE ANIMATION */
 .fade {
-  opacity:0;
-  transform: translateY(40px);
-  transition:1s;
+opacity:0;
+transform: translateY(40px);
+transition:1s;
 }
 
 .fade.show {
-  opacity:1;
-  transform: translateY(0);
+opacity:1;
+transform: translateY(0);
 }
 
 /* MEDIA */
 img, video {
-  width:80%;
-  max-width:300px;
-  border-radius:20px;
-  margin-top:20px;
+width:80%;
+max-width:300px;
+border-radius:20px;
+margin-top:20px;
 }
 
 /* BUTTON */
 button {
-  padding:10px 20px;
-  margin:5px;
-  border:none;
-  border-radius:20px;
-  background:white;
-  color:#ff4d6d;
-  cursor:pointer;
+padding:10px 20px;
+margin:5px;
+border:none;
+border-radius:20px;
+background:white;
+color:#ff4d6d;
+cursor:pointer;
 }
 
 /* LIST FIX (IMPORTANT FIX) */
 ul {
-  list-style: none;
-  padding: 0;
-  margin: 20px auto;
-  max-width: 500px;
-  width: 100%;
+list-style: none;
+padding: 0;
+margin: 20px auto;
+max-width: 500px;
+width: 100%;
 }
 
 ul li {
-  background: rgba(255,255,255,0.12);
-  margin: 10px 0;
-  padding: 14px 16px;
-  border-radius: 12px;
-  text-align: left;
-  line-height: 1.6;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+background: rgba(255,255,255,0.12);
+margin: 10px 0;
+padding: 14px 16px;
+border-radius: 12px;
+text-align: left;
+line-height: 1.6;
+box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
 /* HIDE */
@@ -85,16 +85,16 @@ ul li {
 
 /* HEARTS */
 .heart {
-  position: fixed;
-  top: -10px;
-  color: red;
-  font-size: 20px;
-  animation: fall linear forwards;
+position: fixed;
+top: -10px;
+color: red;
+font-size: 20px;
+animation: fall linear forwards;
 }
 
 @keyframes fall {
-  0% {transform: translateY(-10px); opacity: 1;}
-  100% {transform: translateY(100vh); opacity: 0;}
+0% {transform: translateY(-10px); opacity: 1;}
+100% {transform: translateY(100vh); opacity: 0;}
 }
 </style>
 </head>
@@ -103,107 +103,107 @@ ul li {
 
 <!-- MUSIC -->
 <div class="section">
-  <h1>For My Love, Prasanth ❤️</h1>
-  <p>From Sujithra… with all my heart 💕</p>
-  <button onclick="startMusic()">Play Music 🎵</button>
+<h1>For My Love, Prasanth ❤️</h1>
+<p>From Sujithra… with all my heart 💕</p>
+<button onclick="startMusic()">Play Music 🎵</button>
 </div>
 
 <audio id="bgMusic" loop>
-  <source src="oursong.mp3" type="audio/mpeg">
+<source src="oursong.mp3" type="audio/mpeg">
 </audio>
 
 <!-- MAIN -->
 <div class="section romantic fade">
-  <h1>Happy 4th year Wedding Anniversary, my love ❤️
-      Every day with you feels like a beautiful dream I never want to wake up from. 
-      You are my strength, my peace, and my forever home. I love you more than words can ever say ❤️</h1>
-  <div id="timer"></div>
+<h1>Happy 4th year Wedding Anniversary, my love ❤️
+Every day with you feels like a beautiful dream I never want to wake up from. 
+You are my strength, my peace, and my forever home. I love you more than words can ever say ❤️</h1>
+<div id="timer"></div>
 </div>
 
 <!-- STORY -->
 <div class="section fade">
-  <h2>Our Story 💕</h2>
-  <ul>
-    <li>It started with a simple hello… and became my forever love story ❤️</li>
-    <li>From strangers to soulmates, our journey was written by love 💕</li>
-    <li>You came into my life quietly, but stayed as my whole world ❤️</li>
-    <li>Every moment with you turned into my favorite memory 💍</li>
-    <li>We didn’t just fall in love… we grew in love, every single day ❤️</li>
-  </ul>
+<h2>Our Story 💕</h2>
+<ul>
+<li>It started with a simple hello… and became my forever love story ❤️</li>
+<li>From strangers to soulmates, our journey was written by love 💕</li>
+<li>You came into my life quietly, but stayed as my whole world ❤️</li>
+<li>Every moment with you turned into my favorite memory 💍</li>
+<li>We didn’t just fall in love… we grew in love, every single day ❤️</li>
+</ul>
 </div>
 
 <!-- MEMORIES -->
 <div class="section romantic fade">
-  <h2>Our Memories 📸</h2>
-  <img id="slide" src="wed1.jpg">
+<h2>Our Memories 📸</h2>
+<img id="slide" src="wed1.jpg">
 </div>
 
 <!-- LOVE -->
 <div class="section fade">
-  <h2>Why I Love You ❤️</h2>
-  <p id="loveText">Click below...</p>
-  <button onclick="nextLove()">Show</button>
+<h2>Why I Love You ❤️</h2>
+<p id="loveText">Click below...</p>
+<button onclick="nextLove()">Show</button>
 </div>
 
 <!-- SECRET -->
 <div class="section romantic fade">
-  <h2>Unlock My Heart 🔐</h2>
-  <input type="password" id="pass">
-  <button onclick="checkPass()">Unlock</button>
+<h2>Unlock My Heart 🔐</h2>
+<input type="password" id="pass">
+<button onclick="checkPass()">Unlock</button>
 
-  <div id="secret" class="hidden">
-    <ul>
-      <li>You hold my heart in the gentlest way ❤️</li>
-      <li>Every part of me belongs to you 💕</li>
-      <li>You are my safest place in this world ❤️</li>
-      <li>My love for you only grows stronger 💍</li>
-      <li>You complete my life ❤️</li>
-    </ul>
-  </div>
+<div id="secret" class="hidden">
+<ul>
+<li>You hold my heart in the gentlest way ❤️</li>
+<li>Every part of me belongs to you 💕</li>
+<li>You are my safest place in this world ❤️</li>
+<li>My love for you only grows stronger 💍</li>
+<li>You complete my life ❤️</li>
+</ul>
+</div>
 </div>
 
 <!-- QUIZ -->
 <div class="section fade">
-  <h2>Quiz 😍</h2>
+<h2>Quiz 😍</h2>
 
-  <p>Our first outing was on?</p>
-  <button onclick="answer(1,'a')">Feb 27,2022 😄</button>
-  <button onclick="answer(1,'b')">Feb 28,2022 ❤️</button>
+<p>Our first outing was on?</p>
+<button onclick="answer(1,'a')">Feb 27,2022 😄</button>
+<button onclick="answer(1,'b')">Feb 28,2022 ❤️</button>
 
-  <p>Place we enjoyed the most?</p>
-  <button onclick="answer(2,'a')">Qatar 💕</button>
-  <button onclick="answer(2,'b')">Everywhere with you ❤️</button>
+<p>Place we enjoyed the most?</p>
+<button onclick="answer(2,'a')">Qatar 💕</button>
+<button onclick="answer(2,'b')">Everywhere with you ❤️</button>
 
-  <p>Our first meet?</p>
-  <button onclick="answer(3,'a')">Nov 21, 2021 💍</button>
-  <button onclick="answer(3,'b')">Nov 20, 2021 🌹</button>
+<p>Our first meet?</p>
+<button onclick="answer(3,'a')">Nov 21, 2021 💍</button>
+<button onclick="answer(3,'b')">Nov 20, 2021 🌹</button>
 
-  <p id="score"></p>
+<p id="score"></p>
 </div>
 
 <!-- VIDEO -->
 <div class="section romantic fade">
-  <h2>Our Moments 🎥</h2>
-  <video controls>
-    <source src="our.mp4" type="video/mp4">
-  </video>
+<h2>Our Moments 🎥</h2>
+<video controls>
+<source src="our.mp4" type="video/mp4">
+</video>
 </div>
 
 <!-- VOICE -->
 <div class="section fade">
-  <h2>My Voice 💕</h2>
-  <button onclick="playVoice()">Play</button>
-  <audio id="voiceAudio">
-    <source src="anniversary1.aac" type="audio/aac">
-  </audio>
+<h2>My Voice 💕</h2>
+<button onclick="playVoice()">Play</button>
+<audio id="voiceAudio">
+<source src="anniversary1.aac" type="audio/aac">
+</audio>
 </div>
 
 <!-- FINAL -->
 <div class="section romantic fade">
-  <h1>Will you stay with me forever? 💍</h1>
+<h1>Will you stay with me forever? 💍</h1>
 
   <button onclick="sayYes()">Yes ❤️</button>
-  <button id="noBtn">No 😢</button>
+  <button onclick="sayNo()">No 😢</button>
   
   <div id="finalImage" class="hidden">
     <img src="tatoo.jpg" alt="Forever Love ❤️">
@@ -215,68 +215,68 @@ ul li {
 
 <script>
 function startMusic(){
-  document.getElementById("bgMusic").play();
+document.getElementById("bgMusic").play();
 }
 
 const startDate=new Date("2022-05-11");
 setInterval(()=>{
-  let d=Math.floor((new Date()-startDate)/(1000*60*60*24));
-  document.getElementById("timer").innerHTML=`${d} days together ❤️`;
+let d=Math.floor((new Date()-startDate)/(1000*60*60*24));
+document.getElementById("timer").innerHTML=`${d} days together ❤️`;
 },1000);
 
 let imgs=["wed1.jpg","wed2.jpg","juan1.jpg"];
 let i=0;
 setInterval(()=>{
-  i=(i+1)%imgs.length;
-  document.getElementById("slide").src=imgs[i];
+i=(i+1)%imgs.length;
+document.getElementById("slide").src=imgs[i];
 },2500);
 
 let texts=["I love you because you make me feel safe, even in my worst days ❤️","I love you because you understand me without me having to explain everything 💕","I love you because you stay, even when things get difficult 🌹","I love you because your presence feels like home to me 💕","I love you because you care for me in the smallest, sweetest ways 💕","I love you because you make me laugh when I don’t even feel like smiling 💕","I love you because you believe in me more than I believe in myself 💕","I love you because life feels better and lighter with you in it 💕","I love you because you are my peace in a noisy world 💕","I love you because you chose me, again and again 💕"];
 let t=0;
 function nextLove(){
-  document.getElementById("loveText").innerHTML=texts[t];
-  t=(t+1)%texts.length;
+document.getElementById("loveText").innerHTML=texts[t];
+t=(t+1)%texts.length;
 }
 
 function checkPass(){
-  if(document.getElementById("pass").value.toLowerCase()==="pathu paisa"){
-    document.getElementById("secret").style.display="block";
-  }
+if(document.getElementById("pass").value.toLowerCase()==="pathu paisa"){
+document.getElementById("secret").style.display="block";
+}
 }
 
 let correct={1:"a",2:"a",3:"a"};
 let score=0,count=0;
 function answer(q,a){
-  if(a===correct[q]) score++;
-  count++;
-  if(count===3){
-    document.getElementById("score").innerHTML=`Score: ${score}/3 ❤️`;
-  }
+if(a===correct[q]) score++;
+count++;
+if(count===3){
+document.getElementById("score").innerHTML=`Score: ${score}/3 ❤️`;
+}
 }
 
 function playVoice(){
-  document.getElementById("voiceAudio").play();
+document.getElementById("voiceAudio").play();
 }
 
 let fades=document.querySelectorAll(".fade");
 window.addEventListener("scroll",()=>{
-  fades.forEach(el=>{
-    if(el.getBoundingClientRect().top<window.innerHeight-100){
-      el.classList.add("show");
-    }
-  });
+fades.forEach(el=>{
+if(el.getBoundingClientRect().top<window.innerHeight-100){
+el.classList.add("show");
+}
+});
 });
 
 setInterval(()=>{
-  let h=document.createElement("div");
-  h.className="heart";
-  h.innerHTML="❤️";
-  h.style.left=Math.random()*100+"vw";
-  h.style.fontSize=(Math.random()*20+10)+"px";
-  let duration=Math.random()*3+2;
-  h.style.animationDuration=duration+"s";
-  document.body.appendChild(h);
-  setTimeout(()=>h.remove(),duration*1000);
+let h=document.createElement("div");
+h.className="heart";
+h.innerHTML="❤️";
+h.style.left=Math.random()*100+"vw";
+h.style.fontSize=(Math.random()*20+10)+"px";
+let duration=Math.random()*3+2;
+h.style.animationDuration=duration+"s";
+document.body.appendChild(h);
+setTimeout(()=>h.remove(),duration*1000);
 },300);
   
 function sayYes(){
@@ -286,32 +286,6 @@ function sayYes(){
 function sayNo(){
   let txt = document.getElementById("noText");
   txt.innerHTML = "You are not allowed to select No 😝 Try again!";
-}
-
-const noBtn = document.getElementById("noBtn");
-
-function moveButton() {
-  const maxX = window.innerWidth - noBtn.offsetWidth;
-  const maxY = window.innerHeight - noBtn.offsetHeight;
-  
-  const x = Math.random() * maxX;
-  const y = Math.random() * maxY;
-
-  noBtn.style.position = "absolute";
-  noBtn.style.left = x + "px";
-  noBtn.style.top = y + "px";
-  // move when mouse comes near
-  noBtn.addEventListener("mouseenter", moveButton);
-
-  // optional: if somehow clicked
-  noBtn.addEventListener("click", () => {
-  document.getElementById("noText").innerText = "Nice try 😄";
-  moveButton();
-});
-
-function sayYes() {
-  document.getElementById("finalImage").classList.remove("hidden");
-}
 }
 </script>
 
