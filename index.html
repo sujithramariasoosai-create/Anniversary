@@ -12,6 +12,10 @@ body {
   color:white;
   overflow-x:hidden;
   scroll-behavior:smooth;
+
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
 }
 
 /* SECTIONS */
@@ -203,7 +207,7 @@ ul li {
   <h1>Will you stay with me forever? 💍</h1>
 
   <button onclick="sayYes()">Yes ❤️</button>
-  <button onclick="sayNo()">No 😢</button>
+  <button id="noBtn">No 😢</button>
   
   <div id="finalImage" class="hidden">
     <img src="tatoo.jpg" alt="Forever Love ❤️">
@@ -286,6 +290,32 @@ function sayYes(){
 function sayNo(){
   let txt = document.getElementById("noText");
   txt.innerHTML = "You are not allowed to select No 😝 Try again!";
+}
+
+const noBtn = document.getElementById("noBtn");
+
+function moveButton() {
+  const maxX = window.innerWidth - noBtn.offsetWidth;
+  const maxY = window.innerHeight - noBtn.offsetHeight;
+  
+  const x = Math.random() * maxX;
+  const y = Math.random() * maxY;
+
+  noBtn.style.position = "absolute";
+  noBtn.style.left = x + "px";
+  noBtn.style.top = y + "px";
+  // move when mouse comes near
+  noBtn.addEventListener("mouseenter", moveButton);
+
+  // optional: if somehow clicked
+  noBtn.addEventListener("click", () => {
+  document.getElementById("noText").innerText = "Nice try 😄";
+  moveButton();
+});
+
+function sayYes() {
+  document.getElementById("finalImage").classList.remove("hidden");
+}
 }
 </script>
 
