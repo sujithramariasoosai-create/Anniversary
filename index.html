@@ -12,6 +12,10 @@ background:black;
 color:white;
 overflow-x:hidden;
 scroll-behavior:smooth;
+
+/* ADDED */
+position: relative;
+height: 100vh;
 }
 
 /* SECTIONS */
@@ -61,7 +65,7 @@ color:#ff4d6d;
 cursor:pointer;
 }
 
-/* LIST FIX (IMPORTANT FIX) */
+/* LIST FIX */
 ul {
 list-style: none;
 padding: 0;
@@ -105,7 +109,7 @@ animation: fall linear forwards;
 <div class="section">
 <h1>For My Love, Prasanth ❤️</h1>
 <p>From Sujithra… with all my heart 💕</p>
-<button onclick="startMusic()">Play Music 🎵</button>
+<button onclick="startMusic()">Play This 🎵</button>
 </div>
 
 <audio id="bgMusic" loop>
@@ -191,7 +195,7 @@ You are my strength, my peace, and my forever home. I love you more than words c
 
 <!-- VOICE -->
 <div class="section fade">
-<h2>My Voice 💕</h2>
+<h2>Secret Message 💕</h2>
 <button onclick="playVoice()">Play</button>
 <audio id="voiceAudio">
 <source src="anniversary1.aac" type="audio/aac">
@@ -202,15 +206,15 @@ You are my strength, my peace, and my forever home. I love you more than words c
 <div class="section romantic fade">
 <h1>Will you stay with me forever? 💍</h1>
 
-  <button onclick="sayYes()">Yes ❤️</button>
-  <button onclick="sayNo()">No 😢</button>
-  
-  <div id="finalImage" class="hidden">
-    <img src="tatoo.jpg" alt="Forever Love ❤️">
-    <h2>I knew it... I love you forever ❤️</h2>
-  </div>
+<button onclick="sayYes()">Yes ❤️</button>
+<button id="noBtn">No 😢</button>
 
-  <p id="noText"></p>
+<div id="finalImage" class="hidden">
+<img src="tatoo.jpg" alt="Forever Love ❤️">
+<h2>I knew it... I love you forever ❤️</h2>
+</div>
+
+<p id="noText"></p>
 </div>
 
 <script>
@@ -218,12 +222,14 @@ function startMusic(){
 document.getElementById("bgMusic").play();
 }
 
+/* TIMER */
 const startDate=new Date("2022-05-11");
 setInterval(()=>{
 let d=Math.floor((new Date()-startDate)/(1000*60*60*24));
 document.getElementById("timer").innerHTML=`${d} days together ❤️`;
 },1000);
 
+/* SLIDER */
 let imgs=["wed1.jpg","wed2.jpg","juan1.jpg"];
 let i=0;
 setInterval(()=>{
@@ -231,19 +237,22 @@ i=(i+1)%imgs.length;
 document.getElementById("slide").src=imgs[i];
 },2500);
 
-let texts=["I love you because you make me feel safe, even in my worst days ❤️","I love you because you understand me without me having to explain everything 💕","I love you because you stay, even when things get difficult 🌹","I love you because your presence feels like home to me 💕","I love you because you care for me in the smallest, sweetest ways 💕","I love you because you make me laugh when I don’t even feel like smiling 💕","I love you because you believe in me more than I believe in myself 💕","I love you because life feels better and lighter with you in it 💕","I love you because you are my peace in a noisy world 💕","I love you because you chose me, again and again 💕"];
+/* LOVE TEXT */
+let texts=["I love you because you make me feel safe, even in my worst days ❤️","I love you because you understand me without me having to explain everything 💕","I love you because you stay, even when things get difficult 🌹","I love you because your presence feels like home to me 💕","I love you because you care for me in the smallest, sweetest ways 💕","I love you because you make me laugh when I don’t even feel like smiling 💕","I love you because you believe in me more than I believe in myself 💕","I love you because life feels better and lighter with you in it 💕","I love you because you are my peace in a noisy world 💕","I love you because you chose me, again and again 💕"]; 
 let t=0;
 function nextLove(){
 document.getElementById("loveText").innerHTML=texts[t];
 t=(t+1)%texts.length;
 }
 
+/* PASSWORD */
 function checkPass(){
 if(document.getElementById("pass").value.toLowerCase()==="pathu paisa"){
 document.getElementById("secret").style.display="block";
 }
 }
 
+/* QUIZ */
 let correct={1:"a",2:"a",3:"a"};
 let score=0,count=0;
 function answer(q,a){
@@ -254,10 +263,22 @@ document.getElementById("score").innerHTML=`Score: ${score}/3 ❤️`;
 }
 }
 
+/* AUDIO CONTROL */
+const bgMusic=document.getElementById("bgMusic");
+const voice=document.getElementById("voiceAudio");
+
+bgMusic.volume=0.5;
+
 function playVoice(){
-document.getElementById("voiceAudio").play();
+bgMusic.volume=0.2;
+voice.play();
+
+voice.onended=function(){
+bgMusic.volume=0.5;
+};
 }
 
+/* FADE */
 let fades=document.querySelectorAll(".fade");
 window.addEventListener("scroll",()=>{
 fades.forEach(el=>{
@@ -267,6 +288,7 @@ el.classList.add("show");
 });
 });
 
+/* HEARTS */
 setInterval(()=>{
 let h=document.createElement("div");
 h.className="heart";
@@ -278,15 +300,34 @@ h.style.animationDuration=duration+"s";
 document.body.appendChild(h);
 setTimeout(()=>h.remove(),duration*1000);
 },300);
-  
+
+/* YES */
 function sayYes(){
-  document.getElementById("finalImage").style.display="block";
+document.getElementById("finalImage").style.display="block";
 }
 
-function sayNo(){
-  let txt = document.getElementById("noText");
-  txt.innerHTML = "You are not allowed to select No 😝 Try again!";
+/* 🔥 NO BUTTON ESCAPE */
+const noBtn=document.getElementById("noBtn");
+
+function moveButton(){
+const maxX=window.innerWidth-noBtn.offsetWidth;
+const maxY=window.innerHeight-noBtn.offsetHeight;
+
+const x=Math.random()*maxX;
+const y=Math.random()*maxY;
+
+noBtn.style.position="absolute";
+noBtn.style.left=x+"px";
+noBtn.style.top=y+"px";
 }
+
+noBtn.addEventListener("mouseenter",moveButton);
+
+noBtn.addEventListener("click",function(e){
+e.preventDefault();
+document.getElementById("noText").innerHTML="You are not allowed 😝";
+moveButton();
+});
 </script>
 
 </body>
